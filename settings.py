@@ -1,21 +1,23 @@
 from os import environ
+
 SESSION_CONFIG_DEFAULTS = dict(real_world_currency_per_point=1, participation_fee=0)
-SESSION_CONFIGS = [dict(name='app_sequence', num_demo_participants=None, app_sequence=['blank_app'])]
-LANGUAGE_CODE = 'en'
-REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
-DEMO_PAGE_INTRO_HTML = ''
+SESSION_CONFIGS = [dict(name='app_sequence', num_demo_participants=None, app_sequence=['my_trust'])]
+
 PARTICIPANT_FIELDS = []
 SESSION_FIELDS = []
-ROOMS = []
+
+# ISO-639 code
+# for example: de, fr, ja, ko, zh-hans
+LANGUAGE_CODE = 'en'
+
+# e.g. EUR, GBP, CNY, JPY
+REAL_WORLD_CURRENCY_CODE = 'USD'
+USE_POINTS = True
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
-SECRET_KEY = 'blahblah'
+DEMO_PAGE_INTRO_HTML = """ """
 
-# if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
-
-
+SECRET_KEY = '9673134352672'
