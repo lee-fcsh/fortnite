@@ -9,7 +9,7 @@ Las herramientas usadas son las siguientes
 * HTML - Lenguaje de etiquetado
 * CSS - Diseño de las páginas
 ## Autor ✒️
-* Tommy Villagómez Borja - Junior Developer 
+* Tommy Villagómez Borja - Junior Developer - [Tvillago](https://github.com/Tvillago)
 ## Comandos para correr el experimento
 *Para ejecutar el programa primero se requiere setear el archivo settings.py  y modificar el app_sesion
 *Abrir una consola de comandos y ejecutar el comando otree devserver
