@@ -11,8 +11,8 @@ Las herramientas usadas son las siguientes
 ## Autor ✒️
 * Tommy Villagómez Borja - Junior Developer - [Tvillago](https://github.com/Tvillago)
 ## Comandos para correr el experimento
-*Para ejecutar el programa primero se requiere setear el archivo settings.py  y modificar el app_sesion
-*Abrir una consola de comandos y ejecutar el comando otree devserver
+* Para ejecutar el programa primero se requiere setear el archivo `settings.py`  y modificar el `app_sesion`
+* Abrir una consola de comandos y ejecutar el comando `otree devserver`
 ## Prerequistos
 * Tener instalado Python en una versión mayor a la 3.9
 * Tener instalado el framework Otree en su última versión
