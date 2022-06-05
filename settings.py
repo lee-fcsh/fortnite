@@ -6,19 +6,19 @@ ROOMS = [
     dict(
         name='econ101',
         display_name='Experimental Economics Lab 1',
-        participant_label_file='participant_label_file_ing.txt',
+        participant_label_file='_rooms/participant_label_file_ing.txt',
         use_secure_urls=True
     ),
     dict(
         name='econ102',
         display_name='Experimental Economics Lab 2',
-        participant_label_file='participant_label_file_med.txt',
+        participant_label_file='_rooms/participant_label_file_med.txt',
         use_secure_urls=True
     ),
     dict(
         name='econ103',
         display_name='Experimental Economics Lab 3',
-        participant_label_file='participant_label_file_eco.txt',
+        participant_label_file='_rooms/participant_label_file_eco.txt',
         use_secure_urls=True
     )
 ]
