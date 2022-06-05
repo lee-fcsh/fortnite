@@ -2,7 +2,26 @@ from os import environ
 
 SESSION_CONFIG_DEFAULTS = dict(real_world_currency_per_point=1, participation_fee=0)
 SESSION_CONFIGS = [dict(name='app_sequence', num_demo_participants=None, app_sequence=['my_trust'])]
-
+ROOMS = [
+    dict(
+        name='econ101',
+        display_name='Experimental Economics Lab 1',
+        participant_label_file='_rooms/participant_label_file_ing.txt',
+        use_secure_urls=True
+    ),
+    dict(
+        name='econ102',
+        display_name='Experimental Economics Lab 2',
+        participant_label_file='_rooms/participant_label_file_med.txt',
+        use_secure_urls=True
+    ),
+    dict(
+        name='econ103',
+        display_name='Experimental Economics Lab 3',
+        participant_label_file='_rooms/participant_label_file_eco.txt',
+        use_secure_urls=True
+    )
+]
 PARTICIPANT_FIELDS = []
 SESSION_FIELDS = []
 
