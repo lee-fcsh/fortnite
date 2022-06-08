@@ -38,9 +38,11 @@ class Player(BasePlayer):
 # FUNCTIONS
 def set_payoffs(group: Group):
     """function that calculates the payoffs
-    Args: group: Group
-    Return: None
-    >>> set_payoffs(Group()) """
+    Args: 
+        group: Group
+    Return: 
+        None
+    """
 
     players = group.get_players()
     contributions = [p.contribution for p in players]

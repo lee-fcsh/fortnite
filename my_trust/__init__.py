@@ -37,6 +37,7 @@ def sent_back_amount_choices(group):
     Args: 
         group: Group
     Return: list of choices
+    >>> sent_back_amount_choices(group) recive 4 points, the range is from 0 to 12
     """
     return currency_range(
         0,
@@ -65,6 +66,7 @@ class Send(Page):
         Args:
             player: Player
         Return: boolean
+        >>> is_displayed(player) recive playerid 1, the page is displayed
         """
         return player.id_in_group == 1
 
@@ -82,6 +84,7 @@ class SendBack(Page):
         Args:
             player: Player
         Return: boolean
+        >>> is_displayed(player) recive playerid 2, the page is displayed
         """
         return player.id_in_group == 2
 
@@ -91,6 +94,7 @@ class SendBack(Page):
         Args:
             player: Player
         Return: dictionary
+        >>> vars_for_template(player) recive 4 pints, the range is from 0 to 12
         """
         group = player.group
 
