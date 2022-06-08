@@ -1,5 +1,13 @@
-"""import otree.api"""
+"""File containing the my_public_goods application logic,
+are the classes, constants and functions that are executed when starting the app."""
 from otree.api import *
+
+doc = """
+This is a three player game where each player is initially endowed with 100 points. 
+Each player individually makes a decision about how many of their points they want to contribute to the group. 
+The combined contributions are multiplied by 2, and then divided evenly three ways and redistributed back to the players.
+"""
+
 
 class C(BaseConstants):
     """Constants for the game"""
@@ -29,7 +37,11 @@ class Player(BasePlayer):
 
 # FUNCTIONS
 def set_payoffs(group: Group):
-    """function that calculates the payoffs"""
+    """function that calculates the payoffs
+    Args: group: Group
+    Return: None
+    >>> set_payoffs(Group()) """
+
     players = group.get_players()
     contributions = [p.contribution for p in players]
     group.total_contribution = sum(contributions)

@@ -1,5 +1,10 @@
-"""import otree.api"""
+"""File containing the Survey application logic,
+are the classes, constants and functions that are executed when starting the app."""
 from otree.api import *
+
+doc = """
+app that contains a form with two text field(name, age) and a submit button.
+"""
 
 class C(BaseConstants):
     """constants for the game"""

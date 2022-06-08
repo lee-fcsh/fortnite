@@ -1,6 +1,9 @@
-"""import otree.api"""
+"""File containing the my_trust application logic,
+are the classes, constants and functions that are executed when starting the app."""
 from otree.api import *
-
+doc = """
+app that contains a teo forms, one for the 1st player to send points(10 max), and the other one for the 2nd player.
+"""
 class C(BaseConstants):
     """Constants for the game"""
     NAME_IN_URL = 'my_trust'
@@ -30,14 +33,22 @@ class Player(BasePlayer):
     sent_back_amount = models.CurrencyField()
 
 def sent_back_amount_choices(group):
-    """function that calculates the choices for the sent back amount"""
+    """function that calculates the choices for the sent back amount
+    Args: 
+        group: Group
+    Return: list of choices
+    """
     return currency_range(
         0,
         group.sent_amount * C.MULTIPLICATION_FACTOR,
         1
     )
 def set_payoffs(group: Group):
-    """function that calculates the payoffs"""
+    """function that calculates the payoffs
+    Args: 
+        group: Group
+    Return: None
+    """
     player1 = group.get_player_by_id(1)
     player2 = group.get_player_by_id(2)
     player1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
@@ -50,7 +61,11 @@ class Send(Page):
 
     @staticmethod
     def is_displayed(player):
-        """function that determines whether the page is displayed"""
+        """function that determines whether the page is displayed
+        Args:
+            player: Player
+        Return: boolean
+        """
         return player.id_in_group == 1
 
 class WaitForP1(WaitPage):
@@ -63,12 +78,20 @@ class SendBack(Page):
 
     @staticmethod
     def is_displayed(player):
-        """function that determines whether the page is displayed"""
+        """function that determines whether the page is displayed
+        Args:
+            player: Player
+        Return: boolean
+        """
         return player.id_in_group == 2
 
     @staticmethod
     def vars_for_template(player):
-        """function that determines the variables for the template"""
+        """function that determines the variables for the template
+        Args:
+            player: Player
+        Return: dictionary
+        """
         group = player.group
 
         return dict(
