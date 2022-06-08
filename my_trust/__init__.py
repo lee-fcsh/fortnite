@@ -1,12 +1,8 @@
+"""import otree.api"""
 from otree.api import *
 
-
-doc = """
-Your app description
-"""
-
-
 class C(BaseConstants):
+    """Constants for the game"""
     NAME_IN_URL = 'my_trust'
     PLAYERS_PER_GROUP = 2
     NUM_ROUNDS = 1
@@ -15,10 +11,11 @@ class C(BaseConstants):
     MULTIPLICATION_FACTOR = 3
 
 class Subsession(BaseSubsession):
-    pass
+    """class that contains the game"""
 
 
 class Group(BaseGroup):
+    """class that contains the players"""
     sent_amount = models.CurrencyField(
         label="How much do you want to send to participant B?"
     )
@@ -28,42 +25,50 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    """class that contains the players"""
     sent_amount = models.CurrencyField()
     sent_back_amount = models.CurrencyField()
 
 def sent_back_amount_choices(group):
+    """function that calculates the choices for the sent back amount"""
     return currency_range(
         0,
         group.sent_amount * C.MULTIPLICATION_FACTOR,
         1
     )
 def set_payoffs(group: Group):
-    p1 = group.get_player_by_id(1)
-    p2 = group.get_player_by_id(2)
-    p1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
-    p2.payoff = group.sent_amount * C.MULTIPLICATION_FACTOR - group.sent_back_amount
+    """function that calculates the payoffs"""
+    player1 = group.get_player_by_id(1)
+    player2 = group.get_player_by_id(2)
+    player1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
+    player2.payoff = group.sent_amount * C.MULTIPLICATION_FACTOR - group.sent_back_amount
 # PAGES
 class Send(Page):
+    """page that contains the form"""
     form_model = 'group'
     form_fields = ['sent_amount']
 
     @staticmethod
     def is_displayed(player):
+        """function that determines whether the page is displayed"""
         return player.id_in_group == 1
 
 class WaitForP1(WaitPage):
-    pass
-class SendBack(Page):
+    """page that waits for the other player"""
 
+class SendBack(Page):
+    """page that contains the form"""
     form_model = 'group'
     form_fields = ['sent_back_amount']
 
     @staticmethod
     def is_displayed(player):
+        """function that determines whether the page is displayed"""
         return player.id_in_group == 2
 
     @staticmethod
     def vars_for_template(player):
+        """function that determines the variables for the template"""
         group = player.group
 
         return dict(
@@ -71,9 +76,10 @@ class SendBack(Page):
         )
 
 class ResultsWaitPage(WaitPage):
+    """page that waits for the other players or the results"""
     after_all_players_arrive = set_payoffs
 class Results(Page):
-    pass
+    """page that displays the results"""
 
 
 page_sequence = [Send, WaitForP1, SendBack, ResultsWaitPage, Results]
