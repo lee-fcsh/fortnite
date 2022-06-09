@@ -26,7 +26,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     """class that contains the players"""
 
-# pylint: disable=undefined-variable
+# pylint:disable=invalid-name,used-before-assignment
 class Player(BasePlayer):
     """class that contains the players"""
     # pylint: disable=undefined-variable
