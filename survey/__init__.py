@@ -26,13 +26,10 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     """class that contains the players"""
 
-# pylint: disable=E0602
+# pylint: disable=undefined-variable
 class Player(BasePlayer):
-    # pylint: disable=E0602
     """class that contains the players"""
-    # pylint: disable=undefined-variable
     name = models.StringField()
-    # pylint: disable=undefined-variable
     age = models.IntegerField()
 
 
