@@ -26,8 +26,9 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     """class that contains the players"""
 
-# pylint:disable=invalid-name,used-before-assignment
+# pylint: disable=E0602
 class Player(BasePlayer):
+    # pylint: disable=E0602
     """class that contains the players"""
     # pylint: disable=undefined-variable
     name = models.StringField()
