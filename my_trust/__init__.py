@@ -1,9 +1,15 @@
 """File containing the my_trust application logic,
 are the classes, constants and functions that are executed when starting the app."""
+#pylint: disable=import-error
 from otree.api import *
+
+#pylint: disable=invalid-name
 doc = """
 app that contains a teo forms, one for the 1st player to send points(10 max), and the other one for the 2nd player.
 """
+
+#pylint: disable=invalid-name
+#pylint: disable=undefined-variable
 class C(BaseConstants):
     """Constants for the game"""
     NAME_IN_URL = 'my_trust'
@@ -13,10 +19,11 @@ class C(BaseConstants):
     ENDOWMENT = cu(10)
     MULTIPLICATION_FACTOR = 3
 
+#pylint: disable=undefined-variable
 class Subsession(BaseSubsession):
     """class that contains the game"""
 
-
+#pylint: disable=undefined-variable
 class Group(BaseGroup):
     """class that contains the players"""
     sent_amount = models.CurrencyField(
@@ -26,7 +33,7 @@ class Group(BaseGroup):
         label="How much do you want to send back?"
     )
 
-
+#pylint: disable=undefined-variable
 class Player(BasePlayer):
     """class that contains the players"""
     sent_amount = models.CurrencyField()
@@ -34,7 +41,7 @@ class Player(BasePlayer):
 
 def sent_back_amount_choices(group):
     """function that calculates the choices for the sent back amount
-    Args: 
+    Args:
         group: Group
     Return: list of choices
     >>> sent_back_amount_choices(group) recive 4 points, the range is from 0 to 12
@@ -46,7 +53,7 @@ def sent_back_amount_choices(group):
     )
 def set_payoffs(group: Group):
     """function that calculates the payoffs
-    Args: 
+    Args:
         group: Group
     Return: None
     """
@@ -55,6 +62,7 @@ def set_payoffs(group: Group):
     player1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
     player2.payoff = group.sent_amount * C.MULTIPLICATION_FACTOR - group.sent_back_amount
 # PAGES
+#pylint: disable=undefined-variable
 class Send(Page):
     """page that contains the form"""
     form_model = 'group'
@@ -70,9 +78,11 @@ class Send(Page):
         """
         return player.id_in_group == 1
 
+#pylint: disable=undefined-variable
 class WaitForP1(WaitPage):
     """page that waits for the other player"""
 
+#pylint: disable=undefined-variable
 class SendBack(Page):
     """page that contains the form"""
     form_model = 'group'
@@ -102,9 +112,12 @@ class SendBack(Page):
             tripled_amount=group.sent_amount * C.MULTIPLICATION_FACTOR
         )
 
+#pylint: disable=undefined-variable
 class ResultsWaitPage(WaitPage):
     """page that waits for the other players or the results"""
     after_all_players_arrive = set_payoffs
+
+#pylint: disable=undefined-variable
 class Results(Page):
     """page that displays the results"""
 

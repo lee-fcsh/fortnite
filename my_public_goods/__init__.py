@@ -1,14 +1,17 @@
 """File containing the my_public_goods application logic,
 are the classes, constants and functions that are executed when starting the app."""
+#pylint: disable=import-error
 from otree.api import *
 
+#pylint: disable=invalid-name
 doc = """
 This is a three player game where each player is initially endowed with 100 points. 
 Each player individually makes a decision about how many of their points they want to contribute to the group. 
 The combined contributions are multiplied by 2, and then divided evenly three ways and redistributed back to the players.
 """
 
-
+#pylint: disable=invalid-name
+#pylint: disable=undefined-variable
 class C(BaseConstants):
     """Constants for the game"""
     NAME_IN_URL = 'public_goods_simple'
@@ -17,17 +20,17 @@ class C(BaseConstants):
     ENDOWMENT = cu(100)
     MULTIPLIER = 2
 
-
+#pylint: disable=undefined-variable
 class Subsession(BaseSubsession):
     """class that contains the game"""
 
-
+#pylint: disable=undefined-variable
 class Group(BaseGroup):
     """class that contains the players"""
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
 
-
+#pylint: disable=undefined-variable
 class Player(BasePlayer):
     """class that contains the players"""
     contribution = models.CurrencyField(
@@ -38,9 +41,9 @@ class Player(BasePlayer):
 # FUNCTIONS
 def set_payoffs(group: Group):
     """function that calculates the payoffs
-    Args: 
+    Args:
         group: Group
-    Return: 
+    Return:
         None
     """
 
@@ -55,17 +58,18 @@ def set_payoffs(group: Group):
 
 
 # PAGES
+#pylint: disable=undefined-variable
 class Contribute(Page):
     """page that contains the form"""
     form_model = 'player'
     form_fields = ['contribution']
 
-
+#pylint: disable=undefined-variable
 class ResultsWaitPage(WaitPage):
     """page that waits for the other players or the results"""
     after_all_players_arrive = set_payoffs
 
-
+#pylint: disable=undefined-variable
 class Results(Page):
     """page that displays the results"""
 
