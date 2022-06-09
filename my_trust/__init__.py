@@ -3,6 +3,8 @@ are the classes, constants and functions that are executed when starting the app
 #pylint: disable=import-error
 from otree.api import *
 
+# pylint: disable = too-few-public-methods
+
 #pylint: disable=invalid-name
 doc = """
 app that contains a teo forms, one for the 1st player to send points(10 max), and the other one for the 2nd player.

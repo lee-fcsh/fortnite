@@ -3,6 +3,8 @@ are the classes, constants and functions that are executed when starting the app
 #pylint: disable=import-error
 from otree.api import *
 
+# pylint: disable = too-few-public-methods
+
 #pylint: disable=invalid-name
 doc = """
 This is a three player game where each player is initially endowed with 100 points. 
