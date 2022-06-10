@@ -1,5 +1,6 @@
 """File containing the Survey application logic,
 are the classes, constants and functions that are executed when starting the app."""
+# pylint: disable=import-error
 from otree.api import *
 
 doc = """
@@ -12,14 +13,11 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
-
 class Subsession(BaseSubsession):
     """class that contains the game"""
 
-
 class Group(BaseGroup):
     """class that contains the players"""
-
 
 class Player(BasePlayer):
     """class that contains the players"""

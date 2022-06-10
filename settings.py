@@ -2,7 +2,7 @@
 from os import environ
 
 SESSION_CONFIG_DEFAULTS = dict(real_world_currency_per_point=1, participation_fee=0)
-SESSION_CONFIGS = [dict(name='app_sequence', num_demo_participants=None, app_sequence=['my_trust'])]
+SESSION_CONFIGS = [dict(name='app_sequence', num_demo_participants=None, app_sequence=['survey'])]
 ROOMS = [
     dict(
         name='econ101',

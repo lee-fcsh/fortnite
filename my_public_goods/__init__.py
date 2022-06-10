@@ -1,5 +1,6 @@
 """File containing the my_public_goods application logic,
 are the classes, constants and functions that are executed when starting the app."""
+#pylint: disable=import-error
 from otree.api import *
 
 doc = """
@@ -7,7 +8,6 @@ This is a three player game where each player is initially endowed with 100 poin
 Each player individually makes a decision about how many of their points they want to contribute to the group. 
 The combined contributions are multiplied by 2, and then divided evenly three ways and redistributed back to the players.
 """
-
 
 class C(BaseConstants):
     """Constants for the game"""
@@ -17,16 +17,13 @@ class C(BaseConstants):
     ENDOWMENT = cu(100)
     MULTIPLIER = 2
 
-
 class Subsession(BaseSubsession):
     """class that contains the game"""
-
 
 class Group(BaseGroup):
     """class that contains the players"""
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
-
 
 class Player(BasePlayer):
     """class that contains the players"""
@@ -38,9 +35,9 @@ class Player(BasePlayer):
 # FUNCTIONS
 def set_payoffs(group: Group):
     """function that calculates the payoffs
-    Args: 
+    Args:
         group: Group
-    Return: 
+    Return:
         None
     """
 
@@ -60,11 +57,9 @@ class Contribute(Page):
     form_model = 'player'
     form_fields = ['contribution']
 
-
 class ResultsWaitPage(WaitPage):
     """page that waits for the other players or the results"""
     after_all_players_arrive = set_payoffs
-
 
 class Results(Page):
     """page that displays the results"""
